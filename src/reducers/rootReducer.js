@@ -2,7 +2,7 @@ import {FETCHING_STOCK, FETCHED_STOCK} from '../actions/stocks'
 
 
 export const defaultState = {
-  stocks: [{name: "Yas"}, {name: "Yes"}, {name: "NaNa"}],
+  stocks: [],
   isLoading: false
 }
 

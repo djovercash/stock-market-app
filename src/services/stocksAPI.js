@@ -2,7 +2,7 @@ const STOCKAPI = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADA
 
 class stockAPI {
   static fetchStock(symbol) {
-    return fetch(`${STOCKAPI}GOOGL`).then(res => res.json())
+    return fetch(`${STOCKAPI}${symbol}`).then(res => res.json())
   }
 }
 

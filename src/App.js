@@ -7,8 +7,11 @@ import {connect} from 'react-redux'
 
 class App extends Component {
   componentDidMount() {
-  this.props.fetchStock("GOOGL")
-}
+    let stocks = ["GOOGL", "TWTR", "FB", "AAPL", "MSFT"]
+    stocks.forEach(stock => {
+      this.props.fetchStock(stock)
+    })
+  }
 
   render() {
     console.log(this.props)
