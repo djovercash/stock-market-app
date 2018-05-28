@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import { fetchStock } from './actions/stocks'
+import {connect} from 'react-redux'
 
 class App extends Component {
+  componentDidMount() {
+  this.props.fetchStock("GOOGL")
+}
+
   render() {
+    console.log(this.props)
     return (
       <div className="App">
         <header className="App-header">
@@ -18,4 +26,11 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    stocks: state.stocks,
+    loggedIn: state.loggedIn
+  }
+}
+
+export default withRouter(connect(mapStateToProps, {fetchStock})(App));
