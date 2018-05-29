@@ -22,6 +22,53 @@
   font-size: large;
 }
 
+#chart {
+  display: flex;
+  justify-content: center;
+}
+
+#genButtons {
+  display: flex;
+  justify-content: center;
+}
+
+#genDetailsDiv {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.genDetailsBox {
+  border: 1px solid black;
+  padding: 0.5%;
+}
+
+.genDetailsBox h3 {
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+}
+
+.genDetailsBox h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.button_on {
+  background-color: green;
+}
+
+.button_off {
+  background-color: red;
+}
+
+button {
+  font-weight: bold;
+  border-radius: 10px;
+  outline: none;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

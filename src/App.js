@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import { fetchStock } from './actions/stocks'
 import {connect} from 'react-redux'
+import Chart from './components/stockChart'
 
 class App extends Component {
   componentDidMount() {
@@ -14,16 +14,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.state)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Social Stock</h1>
+        <Chart/>
       </div>
     );
   }
@@ -32,7 +27,7 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     stocks: state.stocks,
-    loggedIn: state.loggedIn
+    isLoading: state.isLoading
   }
 }
 
