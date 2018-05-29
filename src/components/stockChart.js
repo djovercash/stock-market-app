@@ -7,28 +7,64 @@ import GenDetails from './genDetails'
 
 class Chart extends React.Component {
 
-  componentDidMount() {
-   // const stocks = ["GOOGL", "TWTR", "FB", "AAPL", "MSFT"]
-   // stocks.forEach(stock => {
-   //   this.props.fetchStock(stock)
-   // })
+  componentWillMount() {
+    let stocks = ["ADBE", "CRM", "ORCL", "ATVI", "MSFT"]
+    stocks.forEach(stock => {
+      this.props.fetchStock(stock)
+    })
   }
 
-  sortData = (stocks) => {
-    let data = []
-    stocks.forEach(stock => {
-      let timeStamp = stock["Time Series (5min)"]
-      let stockData = {}
-      let timeStampArr = this.findStockKeyArr(stock)
-      let company = stock["Meta Data"]["2. Symbol"]
-    })
+  createTimeStampObj = () => {
+    let timeStampObjArr = []
+    for (let i = 0; i < 20; i++) {
+      let timeStampObj = {}
+      timeStampObjArr.push(timeStampObj)
+    }
+    return timeStampObjArr
   }
 
   findStockKeyArr = (stockObj) => {
     let keyArr = []
+    let keyAndObjArr = []
     for (var key in stockObj) {
       keyArr.push(key)
     }
+    for (let i = 0; i < 20; i++) {
+      let timeStampObj = {}
+      timeStampObj["name"] = keyArr[i]
+      keyAndObjArr.push(timeStampObj)
+    }
+    return keyAndObjArr
+  }
+
+  createTimeStampData = (timeObj, keyArr, company, dataArr) => {
+    for(let i = 0; i < 20; i++) {
+      let time = keyArr[i].name.split(" ")
+      dataArr[i]["name"] = time[1].slice(0, 5)
+      dataArr[i][`${company}`] = parseInt(timeObj[`${keyArr[i].name}`]["4. close"])
+    }
+    return dataArr
+  }
+
+  sortData = () => {
+    let data = this.createTimeStampObj()
+    let stocks = this.props.stocks
+    stocks.forEach(stock => {
+      let timeStamp = stock["Time Series (5min)"]
+      let keyArr = this.findStockKeyArr(timeStamp)
+      let company = stock["Meta Data"]["2. Symbol"]
+      data = this.createTimeStampData(timeStamp, keyArr, company, data)
+    })
+    return data.reverse()
+  }
+
+  stockArr = () => {
+    let stocks = this.props.stocks
+    let stockArr = []
+    stocks.forEach(stock => {
+      stockArr.push(stock["Meta Data"]["2. Symbol"])
+    })
+    return stockArr
   }
 
   render() {
@@ -41,9 +77,9 @@ class Chart extends React.Component {
     //     {name: 'Page F', googl: 2390, twtr: 3800, fb: 2500, aapl: 3000, msft: 1750},
     //     {name: 'Page G', googl: 3490, twtr: 4300, fb: 2100, aapl: 3230, msft: 2000},
     // ];
-    var stocks = ["GOOGL", "TWTR", "FB", "AAPL", "MSFT"]
-    console.log(this.props.data)
-    let data = this.props.data.reverse()
+    console.log(this.props.stocks)
+    let data = this.sortData()
+    let stocks = this.stockArr()
     return (
       <div id="genDetails">
         <div id="genButtons">

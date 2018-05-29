@@ -3,14 +3,14 @@ import React from 'react'
 const genDetails = (props) => {
 
   const findCompany = (symbol) => {
-    if (symbol === "GOOGL") {
-      return "Google"
-    } else if (symbol === "TWTR") {
-      return "Twitter"
-    } else if (symbol === "FB") {
-      return "Facebook"
-    } else if (symbol === "AAPL") {
-      return "Apple"
+    if (symbol === "ADBE") {
+      return "Adobe"
+    } else if (symbol === "CRM") {
+      return "Salesforce"
+    } else if (symbol === "ORCL") {
+      return "Oracle"
+    } else if (symbol === "ATVI") {
+      return "Activision"
     } else {
       return "Microsoft"
     }
