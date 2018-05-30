@@ -4,7 +4,7 @@ const Button = (props) => {
 
   return (
     <div>
-      <button className="button_on" onClick={props.toggle}>{props.stock[0]}</button>
+      <button className="button" onClick={props.toggle}>{props.stock[0]}</button>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import {FETCHING_STOCK, FETCHED_STOCK, FETCHING_SPEC_STOCK, FETCHED_SPEC_STOCK } from '../actions/stocks'
+import {FETCHING_STOCK, FETCHED_STOCK } from '../actions/stocks'
 
 export const defaultState = {
   stocks: [],

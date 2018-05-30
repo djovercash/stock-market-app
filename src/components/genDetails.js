@@ -39,7 +39,8 @@ const genDetails = (props) => {
 
   const findTime = (data) => {
     if (data.length > 0) {
-      return data[0].name
+      let finalDataPoint = data.length-1
+      return data[finalDataPoint].name
     }
   }
 
@@ -50,13 +51,15 @@ const genDetails = (props) => {
 
 
   return (
-    <div id="genDetailsBox" >
-      <h3>{findCompany(props.data)}</h3>
-      <h5>Symbol: {findSymbol(props.data)}</h5>
-      <h5>Closing: {findClosing(props.data)}</h5>
-      <h6>As of: {findTime(props.data)}</h6>
-      <Chart data={props.data} />
-      <Button toggle={removeBox} stock={["RETURN"]} />
+    <div id="genDetailsBox">
+      <div id="genDetailsBoxInfo">
+        <h1>{findCompany(props.data)}</h1>
+        <h3>Symbol: {findSymbol(props.data)}</h3>
+        <h3>Closing: {findClosing(props.data)}</h3>
+        <h5>As of: {findTime(props.data)}</h5>
+        <Button id="returnButton" toggle={removeBox} stock={["RETURN"]} />
+        <Chart data={props.data} width={"100%"} height={"75%"} />
+      </div>
     </div>
   )
 }
