@@ -76,7 +76,6 @@ class MainPageContainer extends React.Component {
     let box = document.getElementById("genDetailsBox")
     box.style.display = "block"
     let stockName = event.target.innerHTML
-    console.log(this.props.history)
     let stocks = this.props.stocks
     let filteredStock = [stocks.find(stock => stock["Meta Data"]["2. Symbol"] === stockName)]
     let endValue = 50
