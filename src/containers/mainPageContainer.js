@@ -6,6 +6,9 @@ import GenDetails from '../components/genDetails'
 import Button from '../components/button'
 
 class MainPageContainer extends React.Component {
+  state = {
+    specStock: []
+  }
 
   componentDidMount() {
     let stocks = ["ADBE", "CRM", "ORCL", "ATVI", "MSFT"]
@@ -69,10 +72,15 @@ class MainPageContainer extends React.Component {
   }
 
   toggle = (event) => {
+    let box = document.getElementById("genDetailsBox")
+    box.style.display = "block"
     let stockName = event.target.innerHTML
     let stocks = this.props.stocks
     let filteredStock = [stocks.find(stock => stock["Meta Data"]["2. Symbol"] === stockName)]
     let data = this.sortData(filteredStock)
+    this.setState({
+      specStock: data.reverse()
+    })
   }
 
   render() {
@@ -86,7 +94,7 @@ class MainPageContainer extends React.Component {
           })}
         </div>
         <StockChart data={data} />
-        <GenDetails />
+        <GenDetails data={this.state.specStock}/>
       </div>
     )
   }

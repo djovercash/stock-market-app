@@ -13,7 +13,6 @@ const Chart = (props) => {
         <Line type="monotone" dataKey="MSFT" stroke="purple" />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <Tooltip/>
-        <Legend />
         <XAxis dataKey="name" />
         <YAxis />
       </LineChart>
