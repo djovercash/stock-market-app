@@ -7,9 +7,9 @@ import MainPageContainer from './containers/mainPageContainer'
 
 class App extends Component {
 
-  componentDidMount() {
-    this.props.history.push("/home")
-  }
+  // componentDidMount() {
+  //   this.props.history.push("/home")
+  // }
 
   render() {
     return (
