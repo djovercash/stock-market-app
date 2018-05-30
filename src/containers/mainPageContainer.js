@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { fetchStock, fetchSpecStock } from '../actions/stocks'
+import { fetchStock } from '../actions/stocks'
 import StockChart from '../components/stockChart'
 import GenDetails from '../components/genDetails'
 import Button from '../components/button'
@@ -110,4 +110,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {fetchStock, fetchSpecStock})(MainPageContainer)
+export default connect(mapStateToProps, {fetchStock})(MainPageContainer)
