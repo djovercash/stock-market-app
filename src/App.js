@@ -4,6 +4,7 @@ import './App.css';
 import { fetchStock } from './actions/stocks'
 import {connect} from 'react-redux'
 import Chart from './components/stockChart'
+import MainPageContainer from './containers/mainPageContainer'
 
 class App extends Component {
   // componentDidMount() {
@@ -70,8 +71,8 @@ class App extends Component {
     // console.log(arr);
     return (
       <div className="App">
-        <h1>Social Stock</h1>
-        <Chart />
+        <h1>Canadian Stocks</h1>
+        <MainPageContainer />
       </div>
     )
   }

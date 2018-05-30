@@ -1,4 +1,4 @@
-import {FETCHING_STOCK, FETCHED_STOCK} from '../actions/stocks'
+import {FETCHING_STOCK, FETCHED_STOCK, FETCHING_SPEC_STOCK, FETCHED_SPEC_STOCK } from '../actions/stocks'
 
 export const defaultState = {
   stocks: [],
@@ -10,7 +10,7 @@ function rootReducer (state = defaultState, action) {
     case FETCHING_STOCK:
     return {...state, isLoading: true};
     case FETCHED_STOCK:
-    return {stocks: [...state.stocks, action.payload], isLoading: false}
+    return {stocks: [...state.stocks, action.payload], isLoading: false};
     default:
     return state
   }
